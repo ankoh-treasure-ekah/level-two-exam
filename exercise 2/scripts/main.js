@@ -1,17 +1,41 @@
-const bodyContainer = document.createElement('div');
-const formContainer = document.createElement('div');
-const remeberSec = document.createElement('div');
+function mycreateElement(type, attributes = {}) {
+    const createdElement = document.createElement(type);
 
-const notMember = document.createElement('div');
+    for (let [key, value] of Object.entries(attributes)) {
+        if (key == 'class') {
+            createdElement.classList.add(value);
+        } else {
+            createdElement.setAttribute(key, value);
+        }
+    }
+    return createdElement;
+}
 
-const imgContainer = document.createElement('img');
-const userContainer = document.createElement('div');
-const username = document.createElement('input');
-const password = document.createElement('input');
+function appendChildren(parent, children = []) {
+    if (children.length == 1) {
+        parent.appendChild(children[0]);
+        return parent;
+    }
+    children.forEach(child => {
+        parent.appendChild(child);
+    })
+    return parent;
+}
 
-const checkContainer = document.createElement('div');
-checkContainer.classList.add('check-container');
-const checkBox = document.createElement('input');
+let bodyContainer = mycreateElement('div', {class: 'body-container'});
+let formContainer = mycreateElement('div', {class: 'form-container'});
+let remeberSec = mycreateElement('div', {class: 'sec-remember'});
+let imgContainer = mycreateElement('img', {class: 'imgUser'})
+let notMember = mycreateElement('div', {class: 'container-create'})
+var img = "./images/user.svg";
+imgContainer.src = img;
+let username = mycreateElement('input', {placeholder: 'Type Your Username'});
+let password = mycreateElement('input', {placeholder: 'Type Your Password'});
+let userContainer = mycreateElement('div', {class: 'user-container'});
+let checkContainer = mycreateElement('div', {class: 'check-container'});
+let checkBox = mycreateElement('input', {id: 'remember', type: 'checkbox'});
+
+
 const label = document.createElement('label');
 checkContainer.appendChild(checkBox);
 checkContainer.appendChild(label);
@@ -28,56 +52,29 @@ spanMember.textContent = "Not a Member?";
 const linkMember = document.createElement('a'); 
 linkMember.textContent = "Create an Account"
 
-
-notMember.appendChild(spanMember);
-notMember.append(linkMember);
-
-
-var img = "./images/user.svg";
-
-imgContainer.src = img;
-console.log(imgContainer);
+appendChildren(notMember, [spanMember, linkMember]);
 
 signIn.classList.add('user-sign')
 signIn.textContent = "Sign In";
 btnSign.textContent = "Sign In";
 
-username.placeholder = "Type Your Username";
-username.classList.add('username');
-password.classList.add('password');
-checkBox.type = "checkbox";
-checkBox.setAttribute('id', 'remember');
+// username.placeholder = "Type Your Username";
+
 label.setAttribute('for', 'remember');
 label.textContent = "Remember Me"
 forgotPass.textContent = "Forgot Password?"
-password.placeholder = "Type Your Password";
 
-bodyContainer.classList.add('body-container');
-formContainer.classList.add('form-container');
-userContainer.classList.add('user-container');
-remeberSec.classList.add('sec-remember');
-imgContainer.classList.add('imgUser')
+
+// imgContainer.classList.add('imgUser')
 notMember.classList.add('container-create')
 
 document.body.appendChild(bodyContainer);
-
+appendChildren(bodyContainer, [userContainer, signIn, formContainer, notMember]);
 
 userContainer.appendChild(imgContainer);
 
-bodyContainer.appendChild(userContainer);
-bodyContainer.appendChild(signIn);
-bodyContainer.appendChild(formContainer);
+appendChildren(formContainer, [username, password, btnSign, remeberSec]);
 
-formContainer.appendChild(username);
-formContainer.appendChild(password);
-formContainer.appendChild(btnSign);
-formContainer.appendChild(remeberSec);
-
-remeberSec.appendChild(checkContainer);
-
-remeberSec.append(forgotPass);
-
-bodyContainer.appendChild(notMember);
-
+appendChildren(remeberSec, [checkContainer, forgotPass]);
 
 
