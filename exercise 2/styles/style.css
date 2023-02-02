@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    display: block;
+    padding: 8px 80px 8px 5px;
+    margin: 18px 10px;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(0,0,0,0.2);
+    border: none;
+}
+
+body {
+    background: turquoise;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-container {
+    background: white;
+    height: 420px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* .form-container {
+
+} */
+
+.user-container {
+    background: turquoise;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* text-align: center; */
+    position: relative;
+    margin-top: 25px;
+
+}
+
+.user-sign {
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+button {
+    /* padding: 8px 178px 8px 5px; */
+    width: 255px;
+    padding: 8px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: turquoise;
+    margin: 8px 10px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+}
+
+.imgUser {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 15%;
+    left: 20%;
+
+}
+
+.check-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec-remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    color: rgb(22, 247, 224);
+    margin-right: 9px;
+    cursor: pointer;
+    /* font-family: 'Poppins', serif; */
+}
+
+.container-create {
+    background: rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    /* padding-top: 10px;
+    text-align: center; */
+}
